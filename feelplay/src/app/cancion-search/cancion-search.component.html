@@ -1,0 +1,16 @@
+<div id="search-component">
+  <h4><label for="search-box">Buscar cancion</label></h4>
+<form>
+  <mat-form-field>
+  <input matInput placeholder="Deseo escuchar..." #searchBox id="search-box" (input)="search(searchBox.value)" />
+</mat-form-field>
+</form>
+
+  <ul class="search-result">
+    <li *ngFor="let cancion of canciones$ | async" >
+      <a routerLink="/detail/{{cancion.id}}">
+        {{cancion.sTitle}}
+      </a>
+    </li>
+  </ul>
+</div>
